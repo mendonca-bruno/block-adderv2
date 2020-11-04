@@ -42,6 +42,20 @@ public class Counter {
         return contador;
     }
     
+    public int getContador2(){
+        Client c = Client.create();
+        WebResource wr = c.resource("https://sisd-3361a.firebaseio.com/Counter.json");
+        String response = wr.get(String.class);
+        Gson gson = new Gson();
+        if (response.equals("null")){
+            inicializacontador();
+        } else
+        {
+            this.contador = gson.fromJson(response, Integer.class);
+        }
+        return contador;
+    }
+    
     public void inicializacontador()
     {
         Client c = Client.create();      

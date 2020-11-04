@@ -1,10 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-   <title>#{helloworld.message}</title>
-</head>
-<body>
-#{helloworld.message}
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+   <title>BlckAddr - Add blocks to your blockchain!</title>
+</h:head>
+
+<h:body>
+   <h:form>   
+    <p:growl id="growl" showDetail="true" sticky="true" />  
+       
+    <p:panel header="BlckAddrX">  
+        <h:panelGrid columns="2" cellpadding="5">  
+            <p:outputLabel for="msg" value="Nome:" />   
+            <p:inputText id="msg" value="#{blockBean.nome}" required="true" />  
+        </h:panelGrid>  
+   
+        <p:commandButton value="Enviar" action="#{blockBean.tentarInserir()}" update="@form" />
+    </p:panel>     
+</h:form>
+
+</h:body>
 </html>

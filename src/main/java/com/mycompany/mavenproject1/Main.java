@@ -5,16 +5,15 @@
  */
 package com.mycompany.mavenproject1;
 import java.io.Serializable;
+import java.util.concurrent.Semaphore;
 
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
-@Named("helloworld")
-@ViewScoped
 public class Main implements Serializable {
 
-   public String getMessage() {
-      return "Hello World from Fuertefentura";
-   }
+   
+
+
 
 }
