@@ -42,4 +42,8 @@ public void insereBloco() {
     context.addMessage(null, new FacesMessage("Sucesso",  "Seu bloco foi adicionado, " + response) );
 }
 
+public String getMessage() {
+      return "Hello World from Fuertefentura";
+   }
+
 }
