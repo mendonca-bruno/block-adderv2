@@ -72,6 +72,12 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <archive>
+                        <manifest>
+                          <addClasspath>true</addClasspath>
+                          <mainClass>com.mycompany.mavenproject1.Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>

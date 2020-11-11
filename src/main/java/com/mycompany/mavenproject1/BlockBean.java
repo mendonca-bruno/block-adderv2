@@ -20,6 +20,7 @@ import javax.inject.Named;
 @ViewScoped
 public class BlockBean implements Serializable{
     private String nome;
+    private Gerenciador gerenciador = Gerenciador.getInstance();
 
     public String getNome() {
         return nome;
@@ -28,19 +29,17 @@ public class BlockBean implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    Semaphore semaforo = new Semaphore(1);
-        Inserir insere = new Inserir(semaforo);
-        Counter contador = new Counter();
     
     private Aluno criaAluno(String nome){
         Aluno aluno = new Aluno(0, nome, 0);
         return aluno;
     }
     
-    public void tentarInserir() throws InterruptedException{
+    public void colocaFila(){
         FacesContext context = FacesContext.getCurrentInstance();
         Aluno novoAluno = criaAluno(nome);
-        insere.adicionaFila(novoAluno);
-        if(insere.inserirBloco(contador)==1) context.addMessage(null, new FacesMessage("Sucesso",  "Seu bloco foi adicionado") );
+        InsertThread novaThread = gerenciador.criaThread(novoAluno);
+        novaThread.start();
+        context.addMessage(null, new FacesMessage("Sucesso",  "Seu bloco foi adicionado") );
     }
 }

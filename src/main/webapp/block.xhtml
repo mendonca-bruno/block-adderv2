@@ -12,13 +12,13 @@
    <h:form>   
     <p:growl id="growl" showDetail="true" sticky="true" />  
        
-    <p:panel header="BlckAddrX">  
+    <p:panel header="BlckAddr 2.0">  
         <h:panelGrid columns="2" cellpadding="5">  
             <p:outputLabel for="msg" value="Nome:" />   
             <p:inputText id="msg" value="#{blockBean.nome}" required="true" />  
         </h:panelGrid>  
    
-        <p:commandButton value="Enviar" action="#{blockBean.tentarInserir()}" update="@form" />
+        <p:commandButton value="Enviar" action="#{blockBean.colocaFila()}" update="@form" />
     </p:panel>     
 </h:form>
 
